@@ -38,7 +38,7 @@ class ReplaceType(object):
       fw.write(cls.GetDjangoType('name', 'str'))
       fw.write(cls.GetDjangoType('email', 'str'))
       fw.write(cls.GetDjangoType('age', 'str'))
-      
+
       # Create Meta
       fw.write('class Meta:\n')
       fw.write(f"\tdb_table = '{modelName}'")
