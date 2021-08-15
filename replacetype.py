@@ -28,20 +28,21 @@ class ReplaceType(object):
       with open(usedpath, 'w'): pass
 
     # 'from django.db import models'
-    list_import = list()
-    list_class = ['class Meta:\n', f"db_table = '{modelName}'"]
-    
+    # list_import = list()
+    # list_class = ['class Meta:\n', f"db_table = '{modelName}'"]
+
     with open(os.path.join(MODELS_DIR, f'{modelName}.py'),'w') as fw:
       fw.write('from django.db import models\n\n')
       fw.write(f'class {modelName}(models.Model):\n')
       # here i have to make a for loop get every fields in the table
-      fw.write(cls.GetDjangoType('name', 'str'))
-      fw.write(cls.GetDjangoType('email', 'str'))
-      fw.write(cls.GetDjangoType('age', 'str'))
+      fw.write(f'{cls.GetDjangoType("name", "str")}\n')
+      fw.write('{}\n'.format(cls.GetDjangoType("name", "str")))
+      fw.write('%s\n'%cls.GetDjangoType("email", "str"))
+      fw.write('%s\n'%cls.GetDjangoType("age", "int"))
 
       # Create Meta
-      fw.write('class Meta:\n')
-      fw.write(f"\tdb_table = '{modelName}'")
+      fw.write('\n\tclass Meta:\n')
+      fw.write(f"\t\tdb_table = '{modelName}'")
 
 
 ReplaceType.CreateModel('Users')
