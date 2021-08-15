@@ -37,8 +37,8 @@ class ReplaceType(object):
       # here i have to make a for loop get every fields in the table
       fw.write(f'{cls.GetDjangoType("name", "str")}\n')
       fw.write('{}\n'.format(cls.GetDjangoType("name", "str")))
-      fw.write('%s\n'%cls.GetDjangoType("email", "str"))
-      fw.write('%s\n'%cls.GetDjangoType("age", "int"))
+      fw.write('%s\n' % cls.GetDjangoType("email", "str"))
+      fw.write('%s\n' % cls.GetDjangoType("age", "int"))
 
       # Create Meta
       fw.write('\n\tclass Meta:\n')
