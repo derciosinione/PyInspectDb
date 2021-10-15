@@ -34,6 +34,7 @@ class ReplaceType(object):
     with open(os.path.join(MODELS_DIR, f'{modelName}.py'),'w') as fw:
       fw.write('from django.db import models\n\n')
       fw.write(f'class {modelName}(models.Model):\n')
+
       # here i have to make a for loop get every fields in the table
       fw.write(f'{cls.GetDjangoType("name", "str")}\n')
       fw.write('{}\n'.format(cls.GetDjangoType("name", "str")))
